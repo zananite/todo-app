@@ -8,7 +8,6 @@ import { useRef } from "react";
 function App() {
   const [todos, setTodos] = useState([]);
   const [task, setTask] = useState("");
-  const [completedTodos, setCompletedTodos] = useState([]);
 
   const inputRef = useRef();
 
@@ -30,7 +29,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="py-10">
       <MainHeading />
 
       <CreateTodo
@@ -39,9 +38,11 @@ function App() {
         ref={inputRef}
       />
 
-      {todos.map((todo) => (
-        <Todo key={todo.id} id={todo.id} taskTitle={todo.taskTitle} />
-      ))}
+      <div className="border-black border-l border-r mx-20 my-10">
+        {todos.map((todo) => (
+          <Todo key={todo.id} id={todo.id} taskTitle={todo.taskTitle} />
+        ))}
+      </div>
     </div>
   );
 }

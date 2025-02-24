@@ -14,8 +14,8 @@ export default function Todo({ id, taskTitle }) {
   }
 
   return (
-    <div>
-      <h3>{taskTitle}</h3>
+    <div className="flex py-4 my-2">
+      <h3 className="text-2xl font-semibold">{taskTitle}</h3>
       <Button buttonLabel="Edit" onClick={handleEdit} />
       <Button buttonLabel="Mark completed" onClick={handleMarkCompleted} />
       <Button buttonLabel="Delete" onClick={handleDelete} />

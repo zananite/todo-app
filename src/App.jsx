@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import CreateTodo from "./components/CreateTodo";
 import Todo from "./components/Todo";
 import { useRef } from "react";
+import { TodoContext } from "./store/TodoContext";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -29,21 +30,23 @@ function App() {
   }
 
   return (
-    <div className="py-10">
-      <MainHeading />
+    <TodoContext.Provider value={todos}>
+      <div className="py-10">
+        <MainHeading />
 
-      <CreateTodo
-        onChange={handleChange}
-        onClick={handleClick}
-        ref={inputRef}
-      />
+        <CreateTodo
+          onChange={handleChange}
+          onClick={handleClick}
+          ref={inputRef}
+        />
 
-      <div className="border-black border-l border-r mx-20 my-10">
-        {todos.map((todo) => (
-          <Todo key={todo.id} id={todo.id} taskTitle={todo.taskTitle} />
-        ))}
+        <div className="border-black border-l border-r mx-20 my-10">
+          {todos.map((todo) => (
+            <Todo key={todo.id} id={todo.id} taskTitle={todo.taskTitle} />
+          ))}
+        </div>
       </div>
-    </div>
+    </TodoContext.Provider>
   );
 }
 

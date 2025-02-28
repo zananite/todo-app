@@ -1,6 +1,7 @@
 import MainHeading from "./components/MainHeading";
 import CreateTodo from "./components/CreateTodo";
 import DeleteModal from "./components/DeleteModal";
+import RenderTasks from "./components/RenderTasks";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
 
         <CreateTodo />
 
-        <div className="border-black border-l border-r mx-20 my-10"></div>
+        <RenderTasks />
       </div>
     </>
   );
